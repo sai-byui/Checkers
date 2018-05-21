@@ -23,9 +23,9 @@ class Checkers:
             for x in y:
                 self.tile_images.add(x.sprite)
 
-        self.pygame_init()
+        self.__pygame_init__()
 
-    def check_pygame_events(self):
+    def __check_pygame_events__(self):
         for e in pygame.event.get():
             if e.type == pygame.QUIT or (e.type == pygame.KEYDOWN and e.key == pygame.K_ESCAPE):
                 self.running = False
@@ -37,7 +37,7 @@ class Checkers:
         self.tile_images.draw(self.screen)
         pygame.display.flip()
 
-    def pygame_init(self):
+    def __pygame_init__(self):
         os.environ["SDL_VIDEO_CENTERED"] = "1"
         pygame.init()
 
@@ -45,7 +45,7 @@ class Checkers:
 
     def run(self):
         while self.running:
-            self.check_pygame_events()
+            self.__check_pygame_events__()
             self.run_game_logic()
             self.draw()
 
